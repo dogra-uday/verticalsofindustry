@@ -9,26 +9,27 @@
       "tag": "Financial Services",
       "description": "Open a bank account with guided KYC verification.",
       "color": "#2e5eaa",
-      "time": "~4 min",
+      "time": "~6 min",
       "icon": "/icons/bfsi.svg"
     },
     {
       "id": "healthcare",
       "title": "Healthcare",
       "tag": "Patient Services",
-      "description": "Book and manage a patient appointment.",
+      "description": "Register as a patient and book an appointment with insurance details.",
       "color": "#0f6e5c",
-      "time": "~3 min",
+      "time": "~6 min",
       "icon": "/icons/healthcare.svg"
     },
     {
       "id": "retail",
       "title": "Retail",
       "tag": "Order Management",
-      "description": "Track an order and set delivery preferences.",
+      "description": "Place or track an order with delivery and payment preferences.",
       "color": "#a1673d",
-      "time": "~2 min",
+      "time": "~5 min",
       "icon": "/icons/retail.svg"
     }
   ]
+
 }

@@ -1,0 +1,78 @@
+.site-header-nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 16px 48px;
+  background: #1c2a44;
+  color: #fff;
+}
+
+.site-header-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 15px;
+  font-weight: 600;
+}
+
+.site-header-mark {
+  display: flex;
+  flex-shrink: 0;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  background: linear-gradient(135deg, #0f6e5c, #1a9c81);
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.site-header-links {
+  display: flex;
+  flex-grow: 1;
+  gap: 28px;
+  align-items: center;
+  font-size: 13.5px;
+}
+
+.site-header-links a {
+  color: rgb(255 255 255 / 75%);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.site-header-links a:hover,
+.site-header-links a:focus-visible {
+  color: #fff;
+}
+
+.site-header-badge {
+  padding: 4px 10px;
+  border-radius: 999px;
+  background: rgb(255 255 255 / 10%);
+  color: rgb(255 255 255 / 85%);
+  font-family: 'IBM Plex Mono', 'Courier New', monospace;
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+@media (width <= 640px) {
+  .site-header-nav {
+    flex-wrap: wrap;
+    padding: 14px 20px;
+  }
+
+  .site-header-links {
+    order: 3;
+    width: 100%;
+    gap: 16px;
+    overflow-x: auto;
+  }
+
+  .site-header-badge {
+    margin-left: auto;
+  }
+}

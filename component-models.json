@@ -1,10 +1,25 @@
-[
-  {
-    "id": "vertical-selector",
-    "fields": []
-  },
-  {
-    "id": "journey-modal",
-    "fields": []
-  }
-]
+{
+  "groups": [
+    {
+      "id": "journeys-poc",
+      "components": [
+        {
+          "id": "vertical-selector",
+          "fields": []
+        },
+        {
+          "id": "journey-modal",
+          "fields": []
+        },
+        {
+          "id": "site-header",
+          "fields": []
+        },
+        {
+          "id": "site-footer",
+          "fields": []
+        }
+      ]
+    }
+  ]
+}
