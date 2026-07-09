@@ -1,121 +1,25 @@
 {
   "bfsi": {
     "data": [
-      {
-        "step": "1",
-        "journey": "Savings Account Opening",
-        "title": "Personal Details",
-        "fields": "firstName:text:First Name:required|min2|max50|lastName:text:Last Name:required|min2|max50|dob:date:Date of Birth:required|age18plus|gender:select:Gender:required::Male,Female,Other|maritalStatus:select:Marital Status:required::Single,Married,Divorced,Widowed"
-      },
-      {
-        "step": "2",
-        "journey": "Savings Account Opening",
-        "title": "Contact Information",
-        "fields": "mobile:mobile:Mobile Number:required|10digits|otpEnabled|email:email:Email Address:required|validEmail|alternateMobile:mobile:Alternate Mobile:optional|10digits"
-      },
-      {
-        "step": "3",
-        "journey": "Savings Account Opening",
-        "title": "Identity Verification",
-        "fields": "aadhaar:aadhaar:Aadhaar Number:required|12digits|pan:pan:PAN Number:required|patternABCDE1234F|ckyc:text:CKYC Number:optional|14digits"
-      },
-      {
-        "step": "4",
-        "journey": "Savings Account Opening",
-        "title": "Address Details",
-        "fields": "addressLine1:text:Address Line 1:required|min5|max100|addressLine2:text:Address Line 2:optional|max100|city:text:City:required|state:select:State:required::Maharashtra,Delhi,Karnataka,Tamil Nadu,Gujarat,Other|pincode:pincode:PIN Code:required|6digits"
-      },
-      {
-        "step": "5",
-        "journey": "Savings Account Opening",
-        "title": "Employment Details",
-        "fields": "occupation:select:Occupation:required::Salaried,Self-Employed,Business,Professional,Student,Retired|employer:text:Employer Name:required|min2|max100|annualIncome:select:Annual Income:required::<5L,5L-10L,10L-25L,25L-50L,50L+|sourceOfFunds:select:Source Of Funds:required::Salary,Business,Rental,Investments,Inheritance"
-      },
-      {
-        "step": "6",
-        "journey": "Savings Account Opening",
-        "title": "Nominee Details",
-        "fields": "nomineeName:text:Nominee Name:required|min2|max100|relationship:select:Relationship:required::Spouse,Parent,Child,Sibling,Other|nomineeDob:date:Nominee DOB:required"
-      },
-      {
-        "step": "7",
-        "journey": "Savings Account Opening",
-        "title": "Account Preferences",
-        "fields": "accountType:select:Account Type:required::Savings,Current,Salary|debitCard:select:Debit Card Required:required::Yes,No|internetBanking:select:Internet Banking:required::Yes,No|smsAlerts:select:SMS Alerts:required::Yes,No"
-      },
-      {
-        "step": "8",
-        "journey": "Savings Account Opening",
-        "title": "Regulatory Declarations",
-        "fields": "fatca:checkbox:FATCA Declaration:required|taxResident:select:Tax Residency:required::India,Other|pep:select:Politically Exposed Person:required::Yes,No"
-      },
-      {
-        "step": "9",
-        "journey": "Savings Account Opening",
-        "title": "Consent",
-        "fields": "termsConsent:checkbox:Accept Terms & Conditions:required|privacyConsent:checkbox:Accept Privacy Policy:required|kycConsent:checkbox:KYC Verification Consent:required"
-      },
-      {
-        "step": "10",
-        "journey": "Savings Account Opening",
-        "title": "Review & Submit",
-        "fields": ""
-      },
-
-      {
-        "step": "1",
-        "journey": "Personal Loan Application",
-        "title": "Applicant Details",
-        "fields": "firstName:text:First Name:required|min2|max50|lastName:text:Last Name:required|min2|max50|dob:date:Date of Birth:required|age21plus"
-      },
-      {
-        "step": "2",
-        "journey": "Personal Loan Application",
-        "title": "Contact Information",
-        "fields": "mobile:mobile:Mobile Number:required|10digits|otpEnabled|email:email:Email Address:required|validEmail"
-      },
-      {
-        "step": "3",
-        "journey": "Personal Loan Application",
-        "title": "Identity Verification",
-        "fields": "aadhaar:aadhaar:Aadhaar Number:required|12digits|pan:pan:PAN Number:required|patternABCDE1234F"
-      },
-      {
-        "step": "4",
-        "journey": "Personal Loan Application",
-        "title": "Employment Information",
-        "fields": "occupation:select:Occupation:required::Salaried,Self-Employed,Professional|employer:text:Employer Name:required|min2|max100|experience:number:Years of Experience:required|min1|max40"
-      },
-      {
-        "step": "5",
-        "journey": "Personal Loan Application",
-        "title": "Income Details",
-        "fields": "monthlyIncome:number:Monthly Income:required|min10000|max10000000|existingEMI:number:Existing EMI Amount:required|min0|max500000|bankName:text:Salary Account Bank:required"
-      },
-      {
-        "step": "6",
-        "journey": "Personal Loan Application",
-        "title": "Loan Requirement",
-        "fields": "loanAmount:number:Required Loan Amount:required|min50000|max5000000|loanTenure:select:Loan Tenure:required::12,24,36,48,60,72,84 Months|purpose:select:Loan Purpose:required::Medical,Education,Travel,Home Renovation,Wedding,Other"
-      },
-      {
-        "step": "7",
-        "journey": "Personal Loan Application",
-        "title": "Address Details",
-        "fields": "addressLine1:text:Address Line 1:required|min5|max100|city:text:City:required|state:select:State:required::Maharashtra,Delhi,Karnataka,Tamil Nadu,Gujarat,Other|pincode:pincode:PIN Code:required|6digits"
-      },
-      {
-        "step": "8",
-        "journey": "Personal Loan Application",
-        "title": "Declarations",
-        "fields": "creditCheck:checkbox:Consent For Credit Check:required|termsConsent:checkbox:Accept Terms & Conditions:required|privacyConsent:checkbox:Accept Privacy Policy:required"
-      },
-      {
-        "step": "9",
-        "journey": "Personal Loan Application",
-        "title": "Review & Submit",
-        "fields": ""
-      }
+      { "step": "1", "title": "Personal Details", "fields": "fullName:text:Full Name|dob:date:Date of Birth" },
+      { "step": "2", "title": "KYC Verification", "fields": "aadhaar:aadhaar:Aadhaar Number:12 digits|pan:pan:PAN Number:Format ABCDE1234F" },
+      { "step": "3", "title": "Account Preferences", "fields": "accountType:select:Account Type::Savings,Current|branch:text:Branch" },
+      { "step": "4", "title": "Review & Submit", "fields": "" }
+    ]
+  },
+  "healthcare": {
+    "data": [
+      { "step": "1", "title": "Patient Details", "fields": "fullName:text:Full Name|dob:date:Date of Birth" },
+      { "step": "2", "title": "Patient ID Verification", "fields": "patientId:patientId:Patient ID:6-12 alphanumeric characters" },
+      { "step": "3", "title": "Appointment Preferences", "fields": "department:text:Department|date:date:Preferred Date" },
+      { "step": "4", "title": "Review & Submit", "fields": "" }
+    ]
+  },
+  "retail": {
+    "data": [
+      { "step": "1", "title": "Order Details", "fields": "orderId:text:Order ID" },
+      { "step": "2", "title": "Delivery Preferences", "fields": "address:text:Delivery Address|slot:select:Preferred Slot::Morning,Afternoon,Evening" },
+      { "step": "3", "title": "Review & Submit", "fields": "" }
     ]
   }
 }
