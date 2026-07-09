@@ -1,0 +1,34 @@
+{
+  "total": 3,
+  "offset": 0,
+  "limit": 3,
+  "data": [
+    {
+      "id": "bfsi",
+      "title": "BFSI",
+      "tag": "Financial Services",
+      "description": "Open a bank account with guided KYC verification.",
+      "color": "#2e5eaa",
+      "time": "~4 min",
+      "icon": "/icons/bfsi.svg"
+    },
+    {
+      "id": "healthcare",
+      "title": "Healthcare",
+      "tag": "Patient Services",
+      "description": "Book and manage a patient appointment.",
+      "color": "#0f6e5c",
+      "time": "~3 min",
+      "icon": "/icons/healthcare.svg"
+    },
+    {
+      "id": "retail",
+      "title": "Retail",
+      "tag": "Order Management",
+      "description": "Track an order and set delivery preferences.",
+      "color": "#a1673d",
+      "time": "~2 min",
+      "icon": "/icons/retail.svg"
+    }
+  ]
+}
