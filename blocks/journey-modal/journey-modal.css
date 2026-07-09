@@ -220,7 +220,7 @@
   cursor: not-allowed;
 }
  
-.journey-modal-btn:not(:disabled):not(.primary):hover {
+.journey-modal-btn:not(:disabled, .primary):hover {
   background: #f5f7fa;
 }
  
