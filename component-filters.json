@@ -1,20 +1,62 @@
-{
-  "filters": [
-    {
-      "id": "vertical-selector",
-      "components": []
-    },
-    {
-      "id": "journey-modal",
-      "components": []
-    },
-    {
-      "id": "site-header",
-      "components": []
-    },
-    {
-      "id": "site-footer",
-      "components": []
-    }
-  ]
-}
+[
+  {
+    "id": "main",
+    "components": [
+      "section"
+    ]
+  },
+  {
+    "id": "section",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title",
+      "hero",
+      "cards",
+      "columns",
+      "fragment",
+      "vertical-selector",
+      "journey-modal",
+      "site-header",
+      "site-footer"
+    ]
+  },
+  {
+    "id": "cards",
+    "components": [
+      "card"
+    ]
+  },
+  {
+    "id": "columns",
+    "components": [
+      "column"
+    ]
+  },
+  {
+    "id": "column",
+    "components": [
+      "text",
+      "image",
+      "button",
+      "title"
+    ]
+  },
+  {
+    "id": "vertical-selector",
+    "components": []
+  },
+  {
+    "id": "journey-modal",
+    "components": []
+  },
+  {
+    "id": "site-header",
+    "components": []
+  },
+  {
+    "id": "site-footer",
+    "components": []
+  }
+]
