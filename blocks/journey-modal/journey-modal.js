@@ -5,9 +5,9 @@
 * /data/journeys.json, and renders that vertical's steps as an enterprise-
 * styled modal wizard: numbered stepper, validated fields, success state.
 */
- 
+
 const DATA_SOURCE = '/data/journeys.json';
- 
+
 const VALIDATORS = {
   aadhaar: (v) => /^\d{12}$/.test(v.replace(/\s/g, '')),
   pan: (v) => /^[A-Z]{5}\d{4}[A-Z]$/.test(v.trim().toUpperCase()),
@@ -16,7 +16,7 @@ const VALIDATORS = {
   date: (v) => !!v,
   select: (v) => !!v,
 };
- 
+
 let journeysCache = null;
 async function fetchJourneys() {
   if (journeysCache) return journeysCache;
@@ -25,7 +25,7 @@ async function fetchJourneys() {
   journeysCache = await res.json();
   return journeysCache;
 }
- 
+
 // "name:type:label[:hint][:options]" pipe-separated field specs
 function parseFields(spec) {
   if (!spec) return [];
@@ -40,15 +40,15 @@ function parseFields(spec) {
     };
   });
 }
- 
+
 function renderField(field) {
   const wrap = document.createElement('div');
   wrap.className = 'journey-modal-field';
- 
+
   const label = document.createElement('label');
   label.textContent = field.label;
   wrap.append(label);
- 
+
   let input;
   if (field.type === 'select') {
     input = document.createElement('select');
@@ -66,30 +66,30 @@ function renderField(field) {
   input.name = field.name;
   input.dataset.validateType = field.type;
   wrap.append(input);
- 
+
   if (field.hint) {
     const hint = document.createElement('div');
     hint.className = 'journey-modal-hint';
     hint.textContent = field.hint;
     wrap.append(hint);
   }
- 
+
   return wrap;
 }
- 
+
 export default function decorate(block) {
   block.textContent = '';
   block.className = 'journey-modal';
   block.hidden = true;
- 
+
   const overlay = document.createElement('div');
   overlay.className = 'journey-modal-overlay';
- 
+
   const dialog = document.createElement('div');
   dialog.className = 'journey-modal-dialog';
   dialog.setAttribute('role', 'dialog');
   dialog.setAttribute('aria-modal', 'true');
- 
+
   const header = document.createElement('div');
   header.className = 'journey-modal-header';
   const headerLeft = document.createElement('div');
@@ -103,20 +103,20 @@ export default function decorate(block) {
   sub.className = 'journey-modal-sub';
   headerText.append(title, sub);
   headerLeft.append(icon, headerText);
- 
+
   const closeBtn = document.createElement('button');
   closeBtn.className = 'journey-modal-close';
   closeBtn.type = 'button';
   closeBtn.setAttribute('aria-label', 'Close');
   closeBtn.innerHTML = '&times;';
   header.append(headerLeft, closeBtn);
- 
+
   const stepperEl = document.createElement('div');
   stepperEl.className = 'journey-modal-stepper';
- 
+
   const panel = document.createElement('div');
   panel.className = 'journey-modal-panel';
- 
+
   const nav = document.createElement('div');
   nav.className = 'journey-modal-nav';
   const backBtn = document.createElement('button');
@@ -128,19 +128,19 @@ export default function decorate(block) {
   nextBtn.className = 'journey-modal-btn primary';
   nextBtn.textContent = 'Next';
   nav.append(backBtn, nextBtn);
- 
+
   dialog.append(header, stepperEl, panel, nav);
   overlay.append(dialog);
   block.append(overlay);
- 
+
   let steps = [];
   let currentStep = 0;
   let vertical = null;
- 
+
   function close() { block.hidden = true; }
   closeBtn.addEventListener('click', close);
   overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
- 
+
   function renderStepper() {
     stepperEl.innerHTML = '';
     steps.forEach((_, i) => {
@@ -160,28 +160,28 @@ export default function decorate(block) {
       stepperEl.append(item);
     });
   }
- 
+
   function renderPanel() {
     panel.innerHTML = '';
     const step = steps[currentStep];
     const h4 = document.createElement('h4');
     h4.textContent = step.title;
     panel.append(h4);
- 
+
     const fields = parseFields(step.fields);
     fields.forEach((field) => panel.append(renderField(field)));
- 
+
     if (!fields.length) {
       const p = document.createElement('p');
       p.className = 'journey-modal-review-text';
       p.textContent = 'Review your information above, then submit to complete this journey.';
       panel.append(p);
     }
- 
+
     backBtn.disabled = currentStep === 0;
     nextBtn.textContent = currentStep === steps.length - 1 ? 'Submit' : 'Next';
   }
- 
+
   function validateCurrentStep() {
     let valid = true;
     panel.querySelectorAll('[data-validate-type]').forEach((input) => {
@@ -192,7 +192,7 @@ export default function decorate(block) {
     });
     return valid;
   }
- 
+
   function renderSuccess() {
     stepperEl.innerHTML = '';
     nav.innerHTML = '';
@@ -209,7 +209,7 @@ export default function decorate(block) {
     doneBtn.addEventListener('click', close);
     nav.append(doneBtn);
   }
- 
+
   backBtn.addEventListener('click', () => {
     if (currentStep > 0) {
       currentStep -= 1;
@@ -217,7 +217,7 @@ export default function decorate(block) {
       renderPanel();
     }
   });
- 
+
   nextBtn.addEventListener('click', () => {
     if (!validateCurrentStep()) return;
     if (currentStep < steps.length - 1) {
@@ -229,16 +229,16 @@ export default function decorate(block) {
       renderSuccess();
     }
   });
- 
+
   document.addEventListener('vertical:selected', async (e) => {
     vertical = e.detail;
     currentStep = 0;
- 
+
     icon.style.background = vertical.color || '#2e5eaa';
     icon.textContent = (vertical.title || '').slice(0, 2).toUpperCase();
     title.textContent = `${vertical.title} onboarding`;
     sub.textContent = vertical.tag || '';
- 
+
     try {
       const journeys = await fetchJourneys();
       steps = journeys[vertical.id]?.data || [];
