@@ -1,14 +1,12 @@
-[
-  {
-    "id": "main",
-    "components": [
-      "section"
-    ]
-  },
-  {
-    "...": "./_section.json#/filters"
-  },
-  {
-    "...": "../blocks/*/_*.json#/filters"
-  }
-]
+{
+  "filters": [
+    {
+      "id": "vertical-selector",
+      "components": []
+    },
+    {
+      "id": "journey-modal",
+      "components": []
+    }
+  ]
+}

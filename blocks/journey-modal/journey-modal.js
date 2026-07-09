@@ -147,14 +147,12 @@ export default function decorate(block) {
       const item = document.createElement('div');
       item.className = 'journey-modal-step-item';
       const circle = document.createElement('div');
-      circle.className = 'journey-modal-step-circle'
-        + (i === currentStep ? ' is-active' : '')
-        + (i < currentStep ? ' is-complete' : '');
+      circle.className = `journey-modal-step-circle${i === currentStep ? ' is-active' : ''}${i < currentStep ? ' is-complete' : ''}`;
       circle.textContent = i < currentStep ? '\u2713' : String(i + 1);
       item.append(circle);
       if (i < steps.length - 1) {
         const line = document.createElement('div');
-        line.className = 'journey-modal-step-line' + (i < currentStep ? ' is-complete' : '');
+        line.className = `journey-modal-step-line${i < currentStep ? ' is-complete' : ''}`;
         item.append(line);
       }
       stepperEl.append(item);
